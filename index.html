@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haleemuddin| Web Designer & Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --accent-color: #ff5e7d;
+            --pink-color: #ffc0cb;
+            --dark-color: #0e0e0f;
+            --light-color: #ffffff;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #0e0d0d;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: var(--dark-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            margin: 15px 0;
+        }
+        
+        .section-title.center:after {
+            margin: 15px auto;
+        }
+        
+        .about-section, .portfolio-section, .services-section, .pricing-section, .get-started-section {
+            padding: 80px 0;
+        }
+        
+        .portfolio-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .services-section {
+            background-color: #f9f9f9;
+        }
+        
+        .service-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        
+        .get-started-section {
+            background-color: var(--pink-color);
+            color: #333;
+        }
+        
+        .pricing-plan {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-plan:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .pricing-body {
+            padding: 30px;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .pricing-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .skill-bar {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-progress {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            height: 8px;
+            border-radius: 5px;
+        }
+        
+        .form-control {
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .view-all {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+
+        .fancy-text {
+  font-family: "Brush Script MT", cursive; /* ya koi Google font use kar sakte ho */
+  font-size: 30px;
+  color: #ff69b4;   /* pink color (HotPink) */
+  font-weight: normal;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <!-- Logo with brand name -->
+            <a class="navbar-brand" href="index.html">
+                <img src="logo122.png" alt="Logo" style="height: 60px;px; width:auto">
+            </a>
+
+            <!-- Toggler button for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="getstarted.html">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Creative <span class="hero-highlight">Designer</span> & Developer</h1>
+            <p class="lead mb-4">I create beautiful, functional websites that help businesses grow</p>
+            <a href="portfolio.html" class="btn btn-light btn-lg">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title text-center">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h3>Hi, I'm Halemuddin</h3>
+                    <p class="fancy-text">WordPress web designer and developer</p>
+
+                    <p>I'm a passionate web designer and developer with over 1 years of experience creating digital experiences that users love.</p>
+                    <p>My approach combines creative design with technical expertise to build websites that are not only visually appealing but also highly functional and user-friendly.</p>
+                    
+                    <div class="mt-4">
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                        <p class="mb-1">Web Design</p>
+                        
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                        <p class="mb-1">Frontend Development</p>
+                        
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                        <p class="mb-1">UI/UX Design</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="aboutmeam.PNG">           </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title text-center center">What You Can Get From Me?</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <h3>Blog Design</h3>
+                        <p>You can get an awesome and modern designed blog in WordPress with custom functionality and responsive design.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Business Website</h3>
+                        <p>You will get here a modern and high conversion business website which will increase your business visibility.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>E-commerce</h3>
+                        <p>You can get here full functional ecommerce website with nice product pages and secure payment integration.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="getstarted.html" class="btn btn-primary btn-lg">Get Started Now!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title text-center center">My Portfolio</h2>
+            <p class="text-center mb-5">Here are some of my recent projects</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="img-fluid" alt="E-Commerce Website">
+                        <div class="p-4">
+                            <h4>E-Commerce Website</h4>
+                            <p>A fully responsive e-commerce platform with product filtering and cart functionality.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="img-fluid" alt="Blogging Website">
+                        <div class="p-4">
+                            <h4>Blogging Website</h4>
+                            <p>Interactive blog with category filtering, search functionality, and comment system.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="img-fluid" alt="Travel Agency Website">
+                        <div class="p-4">
+                            <h4>Travel Agency Website</h4>
+                            <p>A beautiful travel agency website with destination packages and booking system.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-all">
+                <a href="portfolio.html" class="btn btn-primary">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center center">Pricing Plan</h2>
+            <p class="text-center mb-5">Pricing for responsive WordPress website</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="pricing-plan">
+                        <div class="pricing-header">
+                            <h3>Basic</h3>
+                            <div class="price">$50</div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li>1 Page</li>
+                                <li>Design Customization</li>
+                                <li>Content Upload</li>
+                                <li>Responsive Design</li>
+                                <li>-</li>
+                                <li>-</li>
+                                <li>-</li>
+                            </ul>
+                            <a href="getstarted.html" class="btn btn-primary w-100">Select</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pricing-plan">
+                        <div class="pricing-header">
+                            <h3>Standard</h3>
+                            <div class="price">$100</div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li>5 Pages</li>
+                                <li>Design Customization</li>
+                                <li>Content Upload</li>
+                                <li>Responsive Design</li>
+                                <li>5 Plugins/Extensions</li>
+                                <li>E-Commerce Functionality</li>
+                                <li>10 Products</li>
+                            </ul>
+                            <a href="getstarted.html" class="btn btn-primary w-100">Select</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pricing-plan">
+                        <div class="pricing-header">
+                            <h3>Premium</h3>
+                            <div class="price">$250</div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li>10 Pages</li>
+                                <li>Design Customization</li>
+                                <li>Content Upload</li>
+                                <li>Responsive Design</li>
+                                <li>10 Plugins/Extensions</li>
+                                <li>E-Commerce Functionality</li>
+                                <li>20 Products</li>
+                            </ul>
+                            <a href="getstarted.html" class="btn btn-primary w-100">Select</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-5">
+                <h3 class="text-center mb-4">FAQ</h3>
+                
+                <div class="faq-item">
+                    <h5>What do you need from me to get started?</h5>
+                    <p>I need WordPress login or sometimes need hosting login. And also need some more instruction. For example: – How many pages will be? – Send me logo if you have and color code for website. – If you have some content you can send me. – And finally you can send me reference website if you have.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h5>Do I need to buy domain and hosting before?</h5>
+                    <p>Yes, you need to have a domain and hosting ready before we can start. I can recommend some reliable providers if you need assistance.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h5>Can I change my text and images in future by own?</h5>
+                    <p>Yes, I will provide you with training on how to update content yourself, or you can opt for my maintenance services.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h5>Will you support after work if there is any error?</h5>
+                    <p>Yes, I provide 30 days of free support after project completion for any issues that may arise.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h5>How is your work process?</h5>
+                    <p>My process involves: 1. Requirement gathering 2. Planning and design 3. Development 4. Testing 5. Deployment 6. Training and support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started Section -->
+    <section id="get-started" class="get-started-section">
+        <div class="container">
+            <h2 class="section-title text-center center">Start a New Project</h2>
+            <p class="text-center mb-5">Please fill out the form below to book a new project with me. Upon completion, I will review your inquiry and let you know if I think I will be a good fit for your project. (All inquiries can expect a response within 48hrs).</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Name*" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Email*" required>
+                            </div>
+                        </div>
+                        
+                        <input type="url" class="form-control" placeholder="Website URL">
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Skype/WhatsApp*" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Country*" required>
+                            </div>
+                        </div>
+                        
+                        <input type="text" class="form-control" placeholder="What Is Your Deadline For This Project?">
+                        <input type="text" class="form-control" placeholder="Estimated Budget?*" required>
+                        
+                        <select class="form-control">
+                            <option value="" disabled selected>Service You Are Interested In *</option>
+                            <option value="blog">Blog Design</option>
+                            <option value="business">Business Website</option>
+                            <option value="ecommerce">E-commerce Website</option>
+                        </select>
+                        
+                        <textarea class="form-control" rows="4" placeholder="Project Details*" required></textarea>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="3 + 13 = ?" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg mt-3">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-icons mb-3">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+            </div>
+            <p>&copy; 2024 Halemuddin. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
